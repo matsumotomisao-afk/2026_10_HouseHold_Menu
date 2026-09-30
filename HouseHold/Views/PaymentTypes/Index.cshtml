@@ -1,0 +1,31 @@
+@model IEnumerable<HouseHold.Models.PaymentType>
+
+@{
+    ViewData["Title"] = "支払区分一覧";
+}
+
+
+    <a asp-action="Create" class="btn btn-primary">新規作成</a>
+</p>
+
+    <thead>
+        <tr>
+            <th>支払区分</th>
+            <th>支払区分ID</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.TypeName)</td>
+        <td>@Html.DisplayFor(modelItem => item.PaymentTypeId)</td>
+        <td>
+            <a asp-action="Details" asp-route-id="@item.PaymentTypeId">詳細</a> |
+            <a asp-action="Edit" asp-route-id="@item.PaymentTypeId">編集</a> |
+            <a asp-action="Delete" asp-route-id="@item.PaymentTypeId">削除</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

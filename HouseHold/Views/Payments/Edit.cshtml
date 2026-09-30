@@ -1,0 +1,74 @@
+@model HouseHold.Models.Payment
+
+@{
+    ViewData["Title"] = "支払の編集";
+}
+<form asp-action="Edit">
+    <input type="hidden" asp-for="PaymentId" />
+
+    <div class="form-group">
+        <label asp-for="Posted" class="control-label"></label>
+        <input asp-for="Posted" class="form-control" />
+        <span asp-validation-for="Posted" class="text-danger"></span>
+    </div>
+
+    <div class="form-group form-check">
+        <input asp-for="InOut" class="form-check-input" />
+        <label asp-for="InOut" class="form-check-label"></label>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SubjectNameId" class="control-label">科目</label>
+        <select asp-for="SubjectNameId" class="form-control" asp-items="@(ViewBag.SubjectNameId as Microsoft.AspNetCore.Mvc.Rendering.SelectList)"></select>
+        <span asp-validation-for="SubjectNameId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ItemName" class="control-label"></label>
+        <input asp-for="ItemName" class="form-control" />
+        <span asp-validation-for="ItemName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PaymentName" class="control-label"></label>
+        <input asp-for="PaymentName" class="form-control" />
+        <span asp-validation-for="PaymentName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PaymentTypeId" class="control-label">支払区分</label>
+        <select asp-for="PaymentTypeId" class="form-control" asp-items="@(ViewBag.PaymentTypeId as Microsoft.AspNetCore.Mvc.Rendering.SelectList)"></select>
+        <span asp-validation-for="PaymentTypeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PaymentMethodId" class="control-label">支払方法</label>
+        <select asp-for="PaymentMethodId" class="form-control" asp-items="@(ViewBag.PaymentMethodId as Microsoft.AspNetCore.Mvc.Rendering.SelectList)"></select>
+        <span asp-validation-for="PaymentMethodId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IncomeCategoryId" class="control-label">収入カテゴリ</label>
+        <select asp-for="IncomeCategoryId" class="form-control" asp-items="@(ViewBag.IncomeCategoryId as Microsoft.AspNetCore.Mvc.Rendering.SelectList)"></select>
+        <span asp-validation-for="IncomeCategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IncomeTypeId" class="control-label">収入の種類</label>
+        <select asp-for="IncomeTypeId" class="form-control" asp-items="@(ViewBag.IncomeTypeId as Microsoft.AspNetCore.Mvc.Rendering.SelectList)"></select>
+        <span asp-validation-for="IncomeTypeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Amount" class="control-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-2">
+        <input type="submit" value="保存" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">一覧に戻る</a>
+    </div>
+</form>
+
+    <partial name="_ValidationScriptsPartial" />

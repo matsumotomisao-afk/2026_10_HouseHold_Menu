@@ -1,0 +1,27 @@
+@model HouseHold.Models.PaymentMethod
+
+@{
+    ViewData["Title"] = "支払方法の削除";
+}
+
+    <h3>以下の支払方法を削除してよろしいですか？</h3>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            支払いの詳細
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MethodName)
+        </dd>
+        <dt class = "col-sm-2">
+            支払区分
+        </dt>
+        <dd class = "col-sm-10">
+            @(Model.PaymentType != null ? Model.PaymentType.TypeName : string.Empty)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PaymentMethodId" />
+        <input type="submit" value="削除" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">キャンセル</a>
+    </form>

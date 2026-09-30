@@ -1,0 +1,22 @@
+@model HouseHold.Models.IncomeType
+
+@{
+    ViewData["Title"] = "所得の種類の削除";
+}
+
+
+    <h4>IncomeType</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">所得の種類</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.TypeName)</dd>
+        <dt class="col-sm-2">所得区分ID</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.IncomeCategoryId)</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="IncomeTypeId" />
+        <input type="submit" value="削除" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">キャンセル</a>
+    </form>
+</div>

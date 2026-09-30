@@ -1,0 +1,23 @@
+@model HouseHold.Models.Menu
+
+@{
+    ViewData["Title"] = "メニュー削除";
+}
+
+
+    <h4>メニュー</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">タイトル</dt>
+        <dd class="col-sm-10">@Model.Title</dd>
+        <dt class="col-sm-2">URL</dt>
+        <dd class="col-sm-10">@Model.Url</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group mt-2">
+            <input type="submit" value="削除" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">一覧に戻る</a>
+        </div>
+    </form>

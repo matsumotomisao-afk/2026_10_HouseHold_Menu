@@ -1,0 +1,35 @@
+@model IEnumerable<HouseHold.Models.Menu>
+
+@{
+    ViewData["Title"] = "メニュー一覧";
+}
+
+
+    <a asp-action="Create" class="btn btn-primary">新規作成</a>
+</p>
+
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>URL</th>
+            <th>表示順</th>
+            <th>表示</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Title)</td>
+        <td>@Html.DisplayFor(modelItem => item.Url)</td>
+        <td>@Html.DisplayFor(modelItem => item.SortOrder)</td>
+        <td>@Html.DisplayFor(modelItem => item.IsVisibleInMenu)</td>
+        <td>
+            <a asp-action="Details" asp-route-id="@item.Id">詳細</a> |
+            <a asp-action="Edit" asp-route-id="@item.Id">編集</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id">削除</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

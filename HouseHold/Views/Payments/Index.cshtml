@@ -1,0 +1,44 @@
+@model IEnumerable<HouseHold.Models.Payment>
+
+@{
+    ViewData["Title"] = "支払一覧";
+}
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary">新規作成</a>
+    </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>支払日</th>
+            <th>収支</th>
+            <th>科目</th>
+            <th>品目</th>
+            <th>支払先</th>
+            <th>支払区分</th>
+            <th>支払方法</th>
+            <th>金額</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Posted)</td>
+        <td>@Html.DisplayFor(modelItem => item.InOut)</td>
+        <td>@item.SubjectNameNavigation?.CourseName</td>
+        <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+        <td>@Html.DisplayFor(modelItem => item.PaymentName)</td>
+        <td>@item.PaymentTypeNavigation?.TypeName</td>
+        <td>@item.PaymentMethodNavigation?.MethodName</td>
+        <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+        <td>
+            <a asp-action="Details" asp-route-id="@item.PaymentId">詳細</a> |
+            <a asp-action="Edit" asp-route-id="@item.PaymentId">編集</a> |
+            <a asp-action="Delete" asp-route-id="@item.PaymentId">削除</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

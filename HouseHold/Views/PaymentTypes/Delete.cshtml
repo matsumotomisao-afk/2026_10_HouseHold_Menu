@@ -1,0 +1,26 @@
+@model HouseHold.Models.PaymentType
+
+@{
+    ViewData["Title"] = "支払区分の削除";
+}
+
+
+    <h3>以下の項目を削除してもよろしいですか。</h3>
+    <div>
+        <h4>支払区分</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                支払区分
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.TypeName)
+            </dd>
+        </dl>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="PaymentTypeId" />
+        <input type="submit" value="削除" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">キャンセル</a>
+    </form>

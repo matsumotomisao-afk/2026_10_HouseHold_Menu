@@ -1,0 +1,25 @@
+@model HouseHold.Models.SubjectName
+
+@{
+    ViewData["Title"] = "科目の編集";
+}
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="SubjectNameId" />
+    <div class="form-group">
+        <label asp-for="CourseName" class="control-label"></label>
+        <input asp-for="CourseName" class="form-control" />
+        <span asp-validation-for="CourseName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl" class="control-label"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-2">
+        <input type="submit" value="保存" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">一覧に戻る</a>
+    </div>
+</form>
+
+    <partial name="_ValidationScriptsPartial" />

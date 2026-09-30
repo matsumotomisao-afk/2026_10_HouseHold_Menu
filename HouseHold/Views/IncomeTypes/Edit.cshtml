@@ -1,0 +1,25 @@
+@model HouseHold.Models.IncomeType
+
+@{
+    ViewData["Title"] = "所得の種類の編集";
+}
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="IncomeTypeId" />
+    <div class="form-group">
+        <label asp-for="TypeName" class="control-label"></label>
+        <input asp-for="TypeName" class="form-control" />
+        <span asp-validation-for="TypeName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IncomeCategoryId" class="control-label"></label>
+        <select asp-for="IncomeCategoryId" class="form-control" asp-items="ViewBag.IncomeCategoryId"></select>
+    </div>
+    <div class="form-group mt-2">
+        <input type="submit" value="保存" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">一覧に戻る</a>
+    </div>
+</form>
+
+    <partial name="_ValidationScriptsPartial" />
+}
